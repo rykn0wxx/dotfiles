@@ -1,0 +1,27 @@
+### dotenv ###
+.env
+
+### Linux ###
+# temporary files
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder
+.Trash-*
+
+### Windows ###
+Thumbs.db
+*.stackdump
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
