@@ -25,3 +25,12 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+.DS_Store
+node_modules
+/dist
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
