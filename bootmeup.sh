@@ -2,8 +2,11 @@
 
 homedir=$HOME;
 
+# Download Git Auto-Completion
+curl -o ${homedir}/.git-completion.bash "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash";
+
 function justDoIt() {
-  rsync --exclude ".git/" \
+  rsync --force -q --exclude ".git/" \
     --exclude ".DS_Store" \
     --exclude ".osx" \
     --exclude "bootstrap.sh" \
@@ -13,9 +16,6 @@ function justDoIt() {
   source ${homedir}/.git-completion.bash;
   source ~/.bash_profile;
 }
-
-# Download Git Auto-Completion
-curl "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash" > ${homedir}/.git-completion.bash;
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
   justDoIt;
