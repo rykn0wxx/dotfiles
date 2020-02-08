@@ -1,0 +1,11 @@
+--skip-git
+--skip-action-mailer
+--skip-action-mailbox
+--skip-action-cable
+--skip-active-storage
+--skip-listen
+--skip-spring
+--skip-test
+--skip-system-test
+--skip-bundle
+--skip-keeps
