@@ -2,10 +2,14 @@
 
 # Create a new directory and enter it
 function mkd() {
-  mkdir -p "$@" && cd "$_";
+  mkdir -p "$@" && cd "$_" && ls -lhAF --color=always;
 }
 
 # `tre` is a shorthand for `tree` with hidden files and color enabled
 function tre() {
   tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+function clr() {
+  clear && figlet rykn0wxx -c -t
 }

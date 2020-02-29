@@ -1,11 +1,13 @@
---skip-git
---skip-action-mailer
 --skip-action-mailbox
 --skip-action-cable
 --skip-active-storage
 --skip-listen
+--skip-sprockets
 --skip-spring
+--skip-coffee
+--skip-turbolinks
 --skip-test
 --skip-system-test
 --skip-bundle
 --skip-keeps
+--skip-git

@@ -5,4 +5,5 @@
 :benchmark: false
 :backtrace: false
 :verbose: true
+install: --no-document
 gem: --no-document
