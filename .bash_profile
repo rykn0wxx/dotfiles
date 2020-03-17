@@ -9,20 +9,21 @@ export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/u
 export PATH="$HOME/bin:$PATH";
 
 # Load the shell dotfiles, and then some:
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+# for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{path,exports,aliases,functions,extra}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
 HISTCONTROL=ignoreboth;
-shopt -s nocaseglob;
+# shopt -s nocaseglob;
 
-shopt -s histappend;
+# shopt -s histappend;
 HISTSIZE=1000;
 HISTFILESIZE=2000;
 
-shopt -s cdspell;
-shopt -s checkwinsize;
+# shopt -s cdspell;
+# shopt -s checkwinsize;
 
 for option in autocd globstar; do
   shopt -s "$option" 2> /dev/null;
@@ -34,7 +35,7 @@ fi
 
 color_prompt=yes;
 if [ "$color_prompt" = yes ]; then
-  man() {
+  function man () {
   env \
   LESS_TERMCAP_mb=$'\e[01;31m' \
   LESS_TERMCAP_md=$'\e[01;31m' \
@@ -52,13 +53,13 @@ if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)";
 fi;
 
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion;
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion;
-  fi;
-fi;
+# if ! shopt -oq posix; then
+#   if [ -f /usr/share/bash-completion/bash_completion ]; then
+#     . /usr/share/bash-completion/bash_completion;
+#   elif [ -f /etc/bash_completion ]; then
+#     . /etc/bash_completion;
+#   fi;
+# fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type _git &> /dev/null; then
@@ -76,3 +77,4 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 [ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
 
 figlet rykn0wxx -c -t
+echo '\n'
