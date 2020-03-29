@@ -19,8 +19,9 @@ HISTCONTROL=ignoreboth;
 # shopt -s nocaseglob;
 
 # shopt -s histappend;
-HISTSIZE=1000;
-HISTFILESIZE=2000;
+HISTSIZE=10000;
+SAVEHIST=10000;
+HISTFILESIZE=10000;
 
 # shopt -s cdspell;
 # shopt -s checkwinsize;
@@ -68,13 +69,13 @@ fi;
 
 complete -W "NSGlobalDomain" defaults;
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-[ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
+# [ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
 
 figlet rykn0wxx -c -t
 echo '\n'

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+export SHELL='/bin/zsh'
 export EDITOR='code';
 export NODE_REPL_HISTORY=~/.node_history;
 export NODE_REPL_HISTORY_SIZE='32768';
@@ -17,8 +18,8 @@ export LC_ALL='en_US.UTF-8';
 
 export LESS_TERMCAP_md="${yellow}";
 
-# if (( $+commands[yarn] ))
-# then
-#   export PATH="$PATH:`yarn global bin`"
-# fi
+if (( $+commands[yarn] ))
+then
+  export PATH="$PATH:`yarn global bin`"
+fi
 hash yarn 2>/dev/null && export PATH="$PATH:`yarn global bin`"
