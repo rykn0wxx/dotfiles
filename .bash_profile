@@ -77,5 +77,10 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 # [ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
 
+c_reset="\e[0m";
+c_red="\e[1;31m";
+
+echo -e $c_red;
 figlet rykn0wxx -c -t
+echo -e $c_reset;
 echo '\n'

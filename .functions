@@ -50,3 +50,21 @@ function ex () {
 function runsync() {
   sudo rsync -aAXvrz --delete --exclude 'rykn0wxx/.rbenv/*' --exclude 'rykn0wxx/.local/*' --exclude 'rykn0wxx/.npm/*' --exclude 'rykn0wxx/.oh-my-zsh/*' --exclude 'rykn0wxx/.android/*' --exclude 'rykn0wxx/Downloads/*' --exclude 'rykn0wxx/ISO/*' --exclude 'rykn0wxx/VirtualBox\ VMs/*' --exclude 'rykn0wxx/.cache/*' --exclude 'rykn0wxx/vmware/*' /home/ /tmp/backups/
 }
+
+function mm () {
+  if [ -f $1 ] ; then
+    case $1 in
+      n)  sudo nmap -sn 192.168.254.0/24 ;;
+      s)  sudo nmap -sS 192.168.254.0/24 ;;
+    esac
+  fi
+}
+
+function vmx () {
+  if [ $1 ] && [ $2 ] ; then
+    case $1 in
+      start) VBoxManage startvm $2 --type headless ;;
+      stop) VBoxManage controlvm $2 acpipowerbutton ;;
+    esac
+  fi
+}

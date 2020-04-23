@@ -5,12 +5,3 @@ set linenumbers
 set tabsize 2
 set tabstospaces
 
-set titlecolor brightwhite,blue
-set statuscolor brightwhite,green
-set errorcolor brightwhite,red
-set selectedcolor brightwhite,magenta
-set stripecolor ,yellow
-set numbercolor cyan
-set keycolor cyan
-set functioncolor green
-
