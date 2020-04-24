@@ -68,3 +68,8 @@ function vmx () {
     esac
   fi
 }
+
+##
+# Find large files and directory
+alias large_files='find -type f -exec du -Sh {} + | sort -rh | head -n 10'
+alias large_dir='du -Sh | sort -rh | head -n 10'

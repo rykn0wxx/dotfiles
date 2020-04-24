@@ -5,8 +5,11 @@
   whitespace = fix
 [core]
   excludesfile = ~/.global_gitignore
+  eol = lf
+  autocrlf = input
 [color]
   ui = auto
+  interactive = auto
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -20,3 +23,5 @@
   added = yellow
   changed = green
   untracked = cyan
+[credential "https://github.com"]
+  username = rykn0wxx
