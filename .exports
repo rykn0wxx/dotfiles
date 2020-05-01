@@ -20,8 +20,8 @@ export LESS_TERMCAP_md="${yellow}";
 
 export SSLKEYLOGFILE="${HOME}/ssl-file.log"
 
-if (( $+commands[yarn] ))
-then
-  export PATH="$PATH:`yarn global bin`"
-fi
-hash yarn 2>/dev/null && export PATH="$PATH:`yarn global bin`"
+#if (( $+commands[yarn] ))
+#then
+#  export PATH="$PATH:`yarn global bin`"
+#fi
+#hash yarn 2>/dev/null && export PATH="$PATH:`yarn global bin`"
