@@ -1,4 +1,0 @@
-ping -c 4 ncsa-mirror.parrot.sh
-ping -c 4 mirror.parrot.sh
-ping -c 4 emea-mirror.parrot.sh
-ping -c 4 apac-mirror.parrot.sh
