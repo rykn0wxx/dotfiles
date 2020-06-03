@@ -11,7 +11,8 @@ function tre() {
 }
 
 function clr() {
-  clear && sudo bash $HOME/.fort-cow.sh
+#  clear && sudo bash $HOME/.fort-cow.sh
+    clear && neofetch
 }
 
 #
@@ -23,7 +24,7 @@ function vwprob() {
 
 # # ex - archive extractor
 # # usage: ex <file>
-function ex () {
+function exx () {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
@@ -69,7 +70,23 @@ function vmx () {
   fi
 }
 
+function vscode () {
+  vargs="--user-data-dir='/home/rykn0wxx'"
+  if [[ -z $@ ]] ; then
+    code sample.txt --user-data-dir='/home/rykn0wxx'
+  else
+    code "$@" --user-data-dir='/home/rykn0wxx'
+  fi
+#  if [ $1 == "" ]; then
+#      /usr/bin/code noname.txt --user-data-dir /home/rykn0wxx
+#  else
+#      /usr/bin/code . --user-data-dir /home/rykn0wxx/
+#  fi
+}
+
 ##
 # Find large files and directory
-alias large_files='find -type f -exec du -Sh {} + | sort -rh | head -n 10'
-alias large_dir='du -Sh | sort -rh | head -n 10'
+alias large_files='find -type f -exec du -Sh {} + | sort -rh | head -n 20'
+alias large_dir='du -Sh | sort -rh | head -n 20'
+
+#

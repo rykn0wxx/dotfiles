@@ -2,16 +2,11 @@
 
 alias _="sudo"
 
-# Shortcuts
-#alias dd="cd ~/Documents"
-#alias dl="cd ~/Downloads"
-#alias dt="cd ~/Desktop"
-#alias dp="cd ~/projects"
-
 # Git Helpers
 alias g="git"
 alias ga="git add ."
 alias gm="git commit -a -m"
+alias gcd1="git clone --depth 1"
 
 # Rails Helpers
 alias rdb="rails db:migrate"
@@ -32,4 +27,5 @@ alias egrep="egrep --color=auto"
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-alias ap='sudo apt install'
+alias ap="sudo apt -y install"
+
