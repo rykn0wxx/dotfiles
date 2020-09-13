@@ -1,7 +1,11 @@
-set autoindent
 set constantshow
 set emptyline
 set linenumbers
-set tabsize 2
+set tabsize 4
 set tabstospaces
+
+set titlecolor bold,lightwhite,magenta
+set numbercolor cyan
+set keycolor lightmagenta
+set functioncolor magenta
 
