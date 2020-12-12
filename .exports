@@ -1,27 +1,25 @@
 #!/usr/bin/env bash
 
-export SHELL='/usr/bin/zsh'
-export EDITOR='code';
+export EDITOR="nano";
 export NODE_REPL_HISTORY=~/.node_history;
-export NODE_REPL_HISTORY_SIZE='32768';
-export NODE_REPL_MODE='sloppy';
+export NODE_REPL_HISTORY_SIZE="32768";
+export NODE_REPL_MODE="sloppy";
 
-export PYTHONIOENCODING='UTF-8';
+export PYTHONIOENCODING="UTF-8";
 
-export HISTSIZE='32768';
-export HISTFILESIZE="${HISTSIZE}";
-
-export HISTCONTROL='ignoreboth';
-
-export LANG='en_US.UTF-8';
-export LC_ALL='en_US.UTF-8';
+export LANG="en_US.UTF-8";
+export LC_ALL="en_US.UTF-8";
 
 export LESS_TERMCAP_md="${yellow}";
 
-# export SSLKEYLOGFILE="${HOME}/ssl-file.log"
+export SSLKEYLOGFILE="${HOME}/ssl-file.log"
 
-#if (( $+commands[yarn] ))
-#then
-#  export PATH="$PATH:`yarn global bin`"
-#fi
-#hash yarn 2>/dev/null && export PATH="$PATH:`yarn global bin`"
+export SENDGRID_APIKEY="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"
+
+export REPO_OS_OVERRIDE="linux"
+export ANDROID_HOME="/usr/lib/android-sdk"
+export ANDROID_SDK_ROOT="/usr/lib/android-sdk"
+
+export GOPATH="${HOME}/go"
+export GOBIN="${GOPATH}/bin"
+export SWIFT_HOME="/opt/swift"

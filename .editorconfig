@@ -8,3 +8,6 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
 semi = false
+
+[*.py]
+indent_size = 4

