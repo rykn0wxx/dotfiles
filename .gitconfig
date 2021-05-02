@@ -25,3 +25,7 @@
   untracked = cyan
 [credential "https://github.com"]
   username = rykn0wxx
+[alias]
+  nicelog = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%aE>%Creset [%G?]'
+[init]
+  defaultBranch = master

@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+#konsolex=$(qdbus | grep 'konsole\|Terminator' | cut -f 2 -d\ )
+#if [ -n konsolex ]; then
+#for konsole in $konsolex
+#do
+#xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id `qdbus #$konsole /konsole/MainWindow_1 winId`;
+#done
+#fi
+#if [ `qdbus | grep yakuake` ]; then
+#xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -name #Yakuake;
+#fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/lib/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/lib/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/lib/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/lib/google-cloud-sdk/completion.zsh.inc'; fi
+
+export WINEPREFIX="${HOME}/.wine"
+
+# unset _JAVA_OPTIONS
+
+## This for JAVA SE8
+JVM_PTH="/usr/lib/jvm"
+CUR_VER="1.8.0_271"
+export J2SDKDIR="${JVM_PTH}/jdk${CUR_VER}";
+export J2REDIR="${J2SDKDIR}/jre";
+export JAVA_HOME="${J2SDKDIR}";
+
+export PATH="$PATH:${J2SDKDIR}/bin:${J2REDIR}/bin"
+unset JVM_PTH
+unset CUR_VER
+
+export PATH="$PATH:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/emulator:${ANDROID_HOME}/platform-tools";
+# export PYTHONPATH="/usr/lib/python3.8:/usr/lib/python3.8/lib-dynload:/usr/local/lib/python3.8/dist-packages:/usr/lib/python3/dist-packages:/opt/obfuscapk/src:${PYTHONPATH}";
+export PATH="$PATH:/usr/local/go/bin";
+
+export DEVSHELL_PROJECT_ID="mud43ad"
+
+export GEOS_DIR="/usr/local"

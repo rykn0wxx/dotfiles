@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 
-cat << EOF > /etc/resolv.conf
-##
-##
+cat > /etc/resolv.conf << EOF
 nameserver 1.0.0.1
 nameserver 1.1.1.1
-nameserver 192.168.254.254
-##
 EOF
 
 c_reset="\e[0m";
