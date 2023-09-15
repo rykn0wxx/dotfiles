@@ -2,16 +2,11 @@
 
 alias _="sudo"
 
-# Shortcuts
-#alias dd="cd ~/Documents"
-#alias dl="cd ~/Downloads"
-#alias dt="cd ~/Desktop"
-#alias dp="cd ~/projects"
-
 # Git Helpers
 alias g="git"
 alias ga="git add ."
 alias gm="git commit -a -m"
+alias gcr="git clone --depth 1"
 
 # Rails Helpers
 alias rdb="rails db:migrate"
@@ -22,14 +17,25 @@ export LS_COLORS='no=00:fi=00:di=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 # Listings
 alias lss="ls -lF ${colorflag}"
 alias ll="ls -lhAF ${colorflag}"
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-alias ls="command ls ${colorflag}"
+alias ls="command ls -ah ${colorflag}"
+alias ldr="ls -lAh -d */"
+alias lf="ls -lAh | egrep -v '^d'"
 
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+# APT helpers
+alias apu="apt update"
+alias apl="apt list --upgradable"
+alias apg="apt upgrade"
 
-alias ap='sudo apt install'
+# Find large files and directory
+alias large_files="find -type f -exec du -Sh {} + | sort -rh | head -n 20"
+alias large_dir="du -Sh | sort -rh | head -n 20"
+
+alias ap="sudo apt --no-install-recommends --no-install-suggests install"
+alias p2="python2 -m pip install"
+alias p3="python3 -m pip install"
+
+alias gcp="ssh -i /root/.ssh/google_compute_engine root@35.247.80.168"

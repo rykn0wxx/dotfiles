@@ -1,0 +1,27 @@
+{
+  "arrowParens": "avoid",
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "trailingComma": "none",
+  "jsxBracketSameLine": true,
+  "printWidth": 320,
+  "bracketSpacing": true,
+  "rubySingleQuote": true,
+  "overrides": [
+    {
+      "files": "*.scss",
+      "options": {
+        "singleQuote": true
+      }
+    },
+    {
+      "files": "*.rb",
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
+}
+

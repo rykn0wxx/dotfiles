@@ -1,29 +1,13 @@
-local ret_status="%(?:%{$fg_bold[red]%}λ:%{$fg_bold[red]%}λ%s)"
+#!/usr/bin/env zsh
 
-function get_pwd(){
-#  git_root=$PWD
-#  while [[ $git_root != / && ! -e $git_root/.git ]]; do
-#    git_root=$git_root:h
-#  done
-#  if [[ $git_root = / ]]; then
-#    unset git_root
-#    prompt_short_dir=%~
-#  else
-#    parent=${git_root%\/*}
-#    prompt_short_dir=${PWD#$parent/}
-#  fi
-  prompt_short_dir="%1d"
-  echo $prompt_short_dir
-}
+# user, host, full path, and time/date
+# on two lines for easier vgrepping
+# entry in a nice long thread on the Arch Linux forums: https://bbs.archlinux.org/viewtopic.php?pid=521888#p521888
+PROMPT=$'%{$fg_bold[red]%} [%{$fg[white]%} %c %{$fg_bold[red]%}]%{$reset_color%} $(git_prompt_info)
+%{$fg_bold[red]%} %B%{$fg_bold[white]%}#%{$fg_bold[red]%}%{\e[0m%}%b '
+PS2=$' \e[0;34m%}%B>%{\e[0m%}%b '
 
-PROMPT='$ret_status %{$fg[white]%}$(get_pwd) $(git_prompt_info)%{$reset_color%}%{$reset_color%}%{$fg_bold[red]%}➜ %{$reset_color%}'
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[orange]%}✗%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[cyan]%}✓%{$reset_color%} "
-
-#ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}[git:"
-#ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}+%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[cyan]%}(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[cyan]%}) %{$fg[yellow]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[cyan]%})"
