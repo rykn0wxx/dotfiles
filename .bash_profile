@@ -52,6 +52,8 @@ if type _git &> /dev/null; then
   complete -o default -o nospace -F _git g;
 fi;
 
+source <(doctl completion zsh)
+
 # if ! shopt -oq posix; then
 #   if [ -f /usr/share/bash-completion/bash_completion ]; then
 #     . /usr/share/bash-completion/bash_completion

@@ -140,6 +140,7 @@ function air-dump() {
   airodump-ng --manufacturer --showack wlan0
 }
 
+# Hash or UnHash sources list
 function re_hash() {
   hash_result=""
   for f in /etc/apt/sources.list.d/*; do

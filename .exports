@@ -10,6 +10,8 @@ export PYTHONIOENCODING="UTF-8";
 export LANG="en_US.UTF-8";
 export LC_ALL="en_US.UTF-8";
 
+export SSL_CERT_DIR=/etc/ssl/certs
+
 export LESS_TERMCAP_md="${yellow}";
 
 export SSLKEYLOGFILE="${HOME}/ssl-file.log"
@@ -23,6 +25,10 @@ export REPO_OS_OVERRIDE="linux"
 
 export GOPATH="/opt/go"
 export GOBIN="${GOPATH}/bin"
+export GOINSECURE="api.digitalocean.com/*"
 export PATH=$PATH:/usr/local/go/bin:$GOBIN
-export PURECLOUD_CLIENTID="9579ba89-10a4-4ebb-9ab0-5d1a430f9701"
-export PURECLOUD_SECRET="y4ikPsCdCMfW6VNb1JTwXVokp76wI3c9jZ4OCOoaS3I"
+export PURECLOUD_CLIENTID1="9579ba89-10a4-4ebb-9ab0-5d1a430f9701"
+export PURECLOUD_SECRET1="y4ikPsCdCMfW6VNb1JTwXVokp76wI3c9jZ4OCOoaS3I"
+
+# Use instead of --access-token argument
+DIGITALOCEAN_ACCESS_TOKEN="dop_v1_95435fa9fbc341801c2ffef7d55fa749e792339736143381db85419488569771"

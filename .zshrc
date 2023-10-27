@@ -11,4 +11,5 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # bash -c 'source /root/.bashrc;$SHELL'
 # bash --init-file <(echo "source /root/.bash_profile;exit")
+compdef _doctl doctl
 source /root/.bashrc
