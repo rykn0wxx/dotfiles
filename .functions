@@ -157,3 +157,19 @@ function re_hash() {
   done
   echo $hash_result
 }
+
+# Lookup Vendor via MAC Address
+function oui_find() {
+  if [ $# -eq 0 ]; then
+    echo "usage: oui_find [device mac address]"
+  else
+    dev_mac="$(echo $1 | sed 's/ //g' | sed 's/-//g' | sed 's/://g' | cut -c1-6)"
+    mac_result="$(grep -i -A 4 ^$dev_mac /var/lib/ieee-data/oui.txt)"
+    if [ "$mac_result" ]; then
+      echo "For the MAC $1 the following information is found:"
+      echo "$mac_result"
+    else
+      echo "MAC $1 is not found in the database."
+    fi
+  fi
+}
